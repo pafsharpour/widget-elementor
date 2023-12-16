@@ -1,0 +1,104 @@
+.sobelz_zigzag_list_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sobelz_zigzag_list_item li{
+    height: 12vw;
+    width: 12vw;
+    position: relative;
+    transform: translateX(-50%);
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 100px;
+    min-height: 100px;
+	list-style:none;
+}
+.sobelz_zigzag_list_item li .circle{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    top: 30px;
+    right: 0;
+    transform: translate(50%,-50%);
+    z-index: 10;
+}
+.sobelz_zigzag_list_item li:nth-child(even) .circle{
+    top: initial;
+    bottom: -10px;
+    transform: translate(50%,50%);
+}
+.sobelz_zigzag_list_item li .circle .imageWraper {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+    padding: 14px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.sobelz_zigzag_list_item li:first-child::after ,
+.sobelz_zigzag_list_item li::before {
+    content: "";
+    background: transparent;
+    background-image: url(https://sobelz.com/wp-content/uploads/2023/07/border.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    height: 1px;
+    width: 145%;
+    transform:rotate(-45deg) ;
+    transform-origin: 100%;
+    z-index: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.sobelz_zigzag_list_item li:nth-child(even)::before {
+    transform:rotate(45deg) ;
+    transform-origin: bottom right;
+    top: initial;
+    bottom: 0;
+}
+.sobelz_zigzag_list_item li:last-child::before {
+    width: 50%;
+    transform: rotate(0);
+
+}
+.sobelz_zigzag_list_item li:first-child::after {
+    width: 50%;
+    transform: rotate(0);
+    right: -50%;
+}
+@media screen and (max-width : 900px) {
+.sobelz_zigzag_list_item{
+    flex-direction: column;
+}
+.sobelz_zigzag_list_item li{
+    height: 17vw;
+    width: 17vw;
+    min-height: 135px;
+    min-width: 135px;
+    transform: translate(0);
+}
+.sobelz_zigzag_list_item li:nth-child(even) .circle{
+    top: 0;
+    bottom: initial;
+    left: 0;
+    transform: translate(-50%,-50%);
+}
+.sobelz_zigzag_list_item li:last-child::before {
+    width: 50%;
+    transform: rotate(0);
+    top: 0;
+    left: -50%;
+    right: initial;
+}
+}
